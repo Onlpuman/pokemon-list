@@ -59,7 +59,7 @@ export const Paginator = () => {
 				)
 			})}
 			{pagesTotal > maxPagesShown
-				&& currentPage < (pagesTotal - 2) && (
+				&& currentPage <= (pagesTotal - 3) && (
 					<Pagination.Ellipsis disabled/>
 				)}
 			<Pagination.Next
