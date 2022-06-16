@@ -82,7 +82,7 @@ export function Details() {
 						<div style={{width: '96px', height: '96px', marginBottom: '20px'}}>
 							<img src={pokemon.sprites.back_default}/>
 						</div>
-						<Link to={'/'}>
+						<Link to={-1}>
 							<Button
 								size={'lg'}
 							>

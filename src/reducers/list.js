@@ -8,6 +8,7 @@ export const list = createSlice({
 		list: null,
 		count: 0,
 		offset: 0,
+		currentPage: 0,
 	},
 	reducers: {
 		loading: (state) => {
@@ -28,16 +29,14 @@ export const list = createSlice({
 		loadError: (state) => {
 			state.loading = loadingStatus.error;
 		},
-		remove: (state) => {
-			state.current = null;
-			state.list = null;
-			state.count = 0;
-			state.offset = 0;
-		},
+		setPage: (state, action) => {
+			const { payload } = action;
+			state.currentPage = payload;
+		}
 	},
 });
 
-export const { loading, loadDone, loadError, remove } = list.actions;
+export const { loading, loadDone, loadError, setPage } = list.actions;
 
 export const loadList = (page) => {
 	return (dispatch) => {
@@ -66,6 +65,7 @@ export const selectList = (state) => {
 		count: state.list.count,
 		loading: state.list.loading,
 		offset: state.list.offset,
+		currentPage: state.list.currentPage,
 	};
 };
 

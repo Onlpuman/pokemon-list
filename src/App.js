@@ -5,7 +5,7 @@ import { Details } from './Pages/Details';
 
 function App() {
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename={'pokemon-list'}>
 			<Routes>
 				<Route path={'/'} element={<Navigate to="/1" replace />}/>
 				<Route path={'/:page'} element={<Main/>}/>

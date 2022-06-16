@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
@@ -8,7 +8,7 @@ import { Name } from '../Components/Name';
 import { BootSpinner } from '../Decorations/BootSpinner';
 import { MainCircles } from '../Decorations/MainCircles';
 import { loadingStatus } from '../constants';
-import { loadList, selectList } from '../reducers/list';
+import { loadList, setPage, selectList } from '../reducers/list';
 
 let mainContainer = {
 	position: 'relative',
@@ -48,12 +48,23 @@ let nameContainerStyle = {
 };
 
 export function Main() {
-	const { loading, list, offset } = useSelector(selectList);
+	const { loading, list, offset, currentPage } = useSelector(selectList);
 	const { page } = useParams();
 	const dispatch = useDispatch();
+	const mountRef = useRef(false);
 	
 	useEffect(() => {
-		dispatch(loadList(page));
+		if (mountRef.current && currentPage > 0) {
+			dispatch(loadList(currentPage));
+		}
+
+		mountRef.current = true;
+	}, [currentPage]);
+	
+	useEffect(() => {
+		if (Number(page) !== Number(currentPage)) {
+			dispatch(setPage(Number(page)));
+		}
 	}, [page]);
 
 	if (loading === loadingStatus.error) {
