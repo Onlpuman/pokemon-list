@@ -15,7 +15,7 @@ const containerStyle = {
 	alignItems: 'center',
 };
 
-let divItemsStyle = {
+const divItemsStyle = {
 	display: 'flex',
 	flexDirection: 'column',
 	gap: '18px',

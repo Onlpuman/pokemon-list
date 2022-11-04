@@ -1,4 +1,4 @@
-let nameStyle = {
+const nameStyle = {
 	fontSize: '18px',
 	color: '#404040',
 };
@@ -6,8 +6,8 @@ let nameStyle = {
 export const Name = props => {
 	const {pokemon, nameContainerStyle} = props;
 
-	let finishNameStyles = Object.assign({}, nameStyle, nameContainerStyle);
-	let name = pokemon.name;
+	const finishNameStyles = Object.assign({}, nameStyle, nameContainerStyle);
+	const name = pokemon.name;
 	
 	const cutName = name => {
 		if (name.length > 11){

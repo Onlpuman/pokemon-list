@@ -5,7 +5,7 @@ import { selectList } from '../reducers/list';
 import Pagination from 'react-bootstrap/Pagination';
 import { defaultLimit, maxPagesShown } from '../constants';
 
-let paginationStyle = {
+const paginationStyle = {
 	marginBottom: '40px',
 };
 

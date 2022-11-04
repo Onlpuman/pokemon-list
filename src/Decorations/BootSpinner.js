@@ -1,6 +1,6 @@
 import Spinner from 'react-bootstrap/Spinner';
 
-let spinnerStyle = {
+const spinnerStyle = {
 	marginTop: '5%',
 };
 

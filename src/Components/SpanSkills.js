@@ -1,4 +1,4 @@
-let skillStyle = {
+const skillStyle = {
 	fontSize: '18px',
 	color: '#404040',
 };

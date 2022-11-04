@@ -43,7 +43,7 @@ export const loadList = (page) => {
 		dispatch(loading());
 
 		const offset = (page - 1) * defaultLimit;
-
+		
 		fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${defaultLimit}`)
 			.then(response => {
 				return response.json();
@@ -53,7 +53,6 @@ export const loadList = (page) => {
 			})
 			.catch(error => {
 				console.error(error);
-
 				dispatch(loadError());
 			});
 	};

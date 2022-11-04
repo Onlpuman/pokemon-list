@@ -10,14 +10,14 @@ import { MainCircles } from '../Decorations/MainCircles';
 import { loadingStatus } from '../constants';
 import { loadList, setPage, selectList } from '../reducers/list';
 
-let mainContainer = {
+const mainContainer = {
 	position: 'relative',
 	display: 'flex',
 	flexDirection: 'column',
 	alignItems: 'center',
 };
 
-let itemsContainerStyle = {
+const itemsContainerStyle = {
 	display: 'flex',
 	flexDirection: 'column',
 	gap: '18px',
@@ -33,7 +33,7 @@ const listItemStyle = {
 	minWidth: '360px',
 };
 
-let countContainerStyle = {
+const countContainerStyle = {
 	display: 'flex',
 	justifyContent: 'center',
 	alignItems: 'center',
@@ -41,7 +41,7 @@ let countContainerStyle = {
 	flexBasis: '25%',
 };
 
-let nameContainerStyle = {
+const nameContainerStyle = {
 	display: 'flex',
 	alignItems: 'center',
 	justifyContent: 'center',

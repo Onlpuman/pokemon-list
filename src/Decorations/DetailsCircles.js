@@ -1,20 +1,20 @@
 import { Circle } from './Circle';
 
-let mainCirclePosition = {
+const mainCirclePosition = {
 	top: '15px',
 };
 
-let circlePosition_1 = {
+const circlePosition_1 = {
 	top: '140px',
 	right: '-40px',
 };
 
-let circlePosition_2 = {
+const circlePosition_2 = {
 	top: '320px',
 	left: '30px',
 };
 
-let circlePosition_3 = {
+const circlePosition_3 = {
 	top: '550px',
 	right: '-20px'
 };

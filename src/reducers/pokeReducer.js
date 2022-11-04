@@ -41,7 +41,6 @@ export const loadPokemon = (name) => {
 			})
 			.catch(error => {
 				console.error(error);
-
 				dispatch(loadError());
 			});
 	};

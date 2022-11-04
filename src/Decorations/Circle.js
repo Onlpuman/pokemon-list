@@ -1,4 +1,4 @@
-let circleStyle = {
+const circleStyle = {
 	position: 'absolute',
 	width: '100px',
 	height: '100px',
@@ -10,7 +10,7 @@ let circleStyle = {
 export const Circle = (props) => {
 	const {style} = props;
 	
-	let finishCircleStyles = Object.assign({}, circleStyle, style);
+	const finishCircleStyles = Object.assign({}, circleStyle, style);
 
 	return (
 		<div
