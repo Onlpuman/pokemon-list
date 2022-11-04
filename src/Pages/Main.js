@@ -98,7 +98,7 @@ export function Main() {
 									/>
 									<Link to={`/pokemon/${pokemon.name}`}>
 										<Button
-											size={'lg'}
+											size={'lm'}
 										>
 											{'Details'}
 										</Button>
