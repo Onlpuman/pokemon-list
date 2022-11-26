@@ -1,15 +1,15 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
-import pokeReducer from './reducers/pokeReducer';
-import list from './reducers/list';
+import { configureStore } from '@reduxjs/toolkit';
+
+import pokemonSlice from './reducers/pokemonSlice';
+import listSlice from './reducers/listSlice';
 
 const store = configureStore(
 	{
 		reducer: {
-			pokeReducer,
-			list,
+			pokemon: pokemonSlice,
+			list: listSlice,
 		},
 	},
-	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 
 export default store;
