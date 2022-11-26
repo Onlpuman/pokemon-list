@@ -13,15 +13,15 @@ const circlePosition_2 = {
 };
 const circlePosition_3 = {
 	top: '550px',
-	right: '-20px'
+	right: '-20px',
 };
 const circlePosition_4 = {
 	top: '800px',
-	left: '-50px'
+	left: '-50px',
 };
 const circlePosition_5 = {
 	top: '1000px',
-	right: '-10px'
+	right: '-10px',
 };
 const circlePosition_6 = {
 	top: '1200px',
@@ -40,12 +40,8 @@ const circlePosition_9 = {
 	right: '-50px',
 };
 const circlePosition_10 = {
-	top: '2200px',
+	top: '2250px',
 	left: '-20px',
-};
-const circlePosition_11 = {
-	top: '2600px',
-	right: '-20px',
 };
 
 export const MainCircles = () => {
@@ -62,7 +58,6 @@ export const MainCircles = () => {
 			<Circle style = {circlePosition_8}/>
 			<Circle style = {circlePosition_9}/>
 			<Circle style = {circlePosition_10}/>
-			<Circle style = {circlePosition_11}/>
 		</>
 	);
 };

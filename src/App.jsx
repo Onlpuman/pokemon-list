@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+
 import { Main } from './Pages/Main';
 import { Details } from './Pages/Details';
 
@@ -12,7 +13,7 @@ function App() {
 				<Route path={'/pokemon/:name'} element={<Details/>}/>
 			</Routes>
 		</BrowserRouter>
-	)
+	);
 }
 
 export default App;

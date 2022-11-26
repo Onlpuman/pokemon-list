@@ -4,8 +4,7 @@ const spinnerStyle = {
 	marginTop: '5%',
 };
 
-export const BootSpinner = props => {
-	
+export const BootSpinner = () => {
 	return (
 		<Spinner
 			style={spinnerStyle}

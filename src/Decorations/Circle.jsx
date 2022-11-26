@@ -8,7 +8,7 @@ const circleStyle = {
 };
 
 export const Circle = (props) => {
-	const {style} = props;
+	const { style } = props;
 	
 	const finishCircleStyles = Object.assign({}, circleStyle, style);
 
