@@ -16,11 +16,10 @@ const circlePosition_2 = {
 
 const circlePosition_3 = {
 	top: '550px',
-	right: '-20px'
+	right: '-20px',
 };
 
 export const DetailsCircles = () => {
-
 	return (
 		<>
 			<Circle style = {mainCirclePosition}/>
