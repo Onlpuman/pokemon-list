@@ -2,11 +2,12 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+
 import { Header } from '../Components/Header';
 import { BootSpinner } from '../Decorations/BootSpinner';
 import { SpanSkills } from '../Components/SpanSkills';
 import { DetailsCircles } from '../Decorations/DetailsCircles';
-import { selectPokemon, loadPokemon, remove } from '../reducers/pokeReducer';
+import { loadPokemon, remove } from '../reducers/pokemonSlice';
 import { loadingStatus } from '../constants';
 
 const containerStyle = {
@@ -32,7 +33,7 @@ const listItemStyle = {
 };
 
 export function Details() {
-	const {pokemon, loading} = useSelector(selectPokemon);
+	const { current, loading } = useSelector(state => state.pokemon);
 	const dispatch = useDispatch();
 	const { name } = useParams();
 
@@ -40,7 +41,7 @@ export function Details() {
 		dispatch(loadPokemon(name));
 		return () => {
 			dispatch(remove());
-		}
+		};
 	}, []);
 
 	if (loading === loadingStatus.error) {
@@ -68,19 +69,19 @@ export function Details() {
 						<div style={divItemsStyle}>
 							<div style={listItemStyle}>
 								<SpanSkills>{'Weight:'}</SpanSkills>
-								<SpanSkills>{pokemon.weight}</SpanSkills>
+								<SpanSkills>{current.weight}</SpanSkills>
 							</div>
 							<div style={listItemStyle}>
 								<SpanSkills>{'Experience:'}</SpanSkills>
-								<SpanSkills>{pokemon.base_experience}</SpanSkills>
+								<SpanSkills>{current.base_experience}</SpanSkills>
 							</div>
 							<div style={listItemStyle}>
 								<SpanSkills>{'Height:'}</SpanSkills>
-								<SpanSkills>{pokemon.height}</SpanSkills>
+								<SpanSkills>{current.height}</SpanSkills>
 							</div>
 						</div>
 						<div style={{width: '96px', height: '96px', marginBottom: '20px'}}>
-							<img src={pokemon.sprites.back_default}/>
+							<img src={current.sprites.back_default} alt={'pokemon picture'}/>
 						</div>
 						<Link to={-1}>
 							<Button
@@ -95,4 +96,4 @@ export function Details() {
 			}
 		</div>
 	);
-};
+}

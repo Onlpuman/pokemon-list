@@ -2,13 +2,14 @@ import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+
 import { Paginator } from '../Components/Paginator';
 import { Header } from '../Components/Header';
 import { Name } from '../Components/Name';
 import { BootSpinner } from '../Decorations/BootSpinner';
 import { MainCircles } from '../Decorations/MainCircles';
 import { loadingStatus } from '../constants';
-import { loadList, setPage, selectList } from '../reducers/list';
+import { setPage, getPage } from '../reducers/listSlice';
 
 const mainContainer = {
 	position: 'relative',
@@ -38,7 +39,7 @@ const countContainerStyle = {
 	justifyContent: 'center',
 	alignItems: 'center',
 	fontSize: '18px',
-	flexBasis: '25%',
+	flexBasis: '20%',
 };
 
 const nameContainerStyle = {
@@ -48,14 +49,14 @@ const nameContainerStyle = {
 };
 
 export function Main() {
-	const { loading, list, offset, currentPage } = useSelector(selectList);
 	const { page } = useParams();
+	const { loading, list, offset, currentPage } = useSelector(state => state.list);
 	const dispatch = useDispatch();
 	const mountRef = useRef(false);
 	
 	useEffect(() => {
 		if (mountRef.current && currentPage > 0) {
-			dispatch(loadList(currentPage));
+			dispatch(getPage());
 		}
 
 		mountRef.current = true;
@@ -70,7 +71,7 @@ export function Main() {
 	if (loading === loadingStatus.error) {
 		return (
 			<main style={mainContainer}>
-				<Header>{'Could not load list...'}</Header>
+				<Header>{'Could not load page...'}</Header>
 			</main>
 		);
 	}
@@ -104,7 +105,7 @@ export function Main() {
 										</Button>
 									</Link>
 								</div>
-							)
+							);
 						})}
 					</div>
 				)
@@ -116,4 +117,4 @@ export function Main() {
 			}
 		</main>
 	);
-};
+}

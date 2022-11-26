@@ -1,8 +1,9 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { selectList } from '../reducers/list';
+
 import Pagination from 'react-bootstrap/Pagination';
+
 import { defaultLimit, maxPagesShown } from '../constants';
 
 const paginationStyle = {
@@ -10,7 +11,7 @@ const paginationStyle = {
 };
 
 export const Paginator = () => {
-	const { count } = useSelector(selectList);
+	const { count } = useSelector(state => state.list);
 	const navigate = useNavigate();
 	const { page } = useParams();
 	const currentPage = Number(page);
@@ -29,13 +30,13 @@ export const Paginator = () => {
 			size={'lm'}
 		>
 			<Pagination.Prev
-				onClick={() => {navigate(`/${currentPage - 1}`, { replace: true })}}
+				onClick={() => {navigate(`/${currentPage - 1}`, { replace: true });}}
 				disabled={currentPage === 1}
 			/>
 			{pagesTotal > maxPagesShown
 				&& currentPage > 3 && (
-					<Pagination.Ellipsis disabled/>
-				)}
+				<Pagination.Ellipsis disabled/>
+			)}
 
 			{[...Array(pagesTotal > maxPagesShown ? maxPagesShown : pagesTotal)].map((_item, index) => {
 				let pageNumber = index + 1;
@@ -56,12 +57,12 @@ export const Paginator = () => {
 					>
 						{pageNumber}
 					</Pagination.Item>
-				)
+				);
 			})}
 			{pagesTotal > maxPagesShown
 				&& currentPage <= (pagesTotal - 3) && (
-					<Pagination.Ellipsis disabled/>
-				)}
+				<Pagination.Ellipsis disabled/>
+			)}
 			<Pagination.Next
 				onClick={() => {navigate(`/${currentPage + 1}`, { replace: true })}}
 				disabled={currentPage === pagesTotal}
